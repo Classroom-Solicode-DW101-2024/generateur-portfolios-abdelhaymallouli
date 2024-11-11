@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 20px;
+}
+img {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: -2%;
+    margin-bottom: 20px;
+
+}
+
+/* Main Portfolio Container */
+#portfolio {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Portfolio Header */
+.portfolio-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.portfolio-header h2 {
+    font-size: 32px;
+    color: #2a2a2a;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.portfolio-contact {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 15px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+    color: #5a5a5a;
+}
+
+/* Projects Section */
+.portfolio-projects {
+    margin-top: 30px;
+}
+
+.portfolio-projects h3 {
+    font-size: 28px;
+    color: #4a90e2;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 10px;
+}
+
+/* Project Card Styling */
+.project-card {
+    background-color: #f8f9fb;
+    border: 1px solid #d3d8e2;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-header h4 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+/* Project Details */
+.project-details p {
+    font-size: 15px;
+    color: #5a5a5a;
+    margin: 5px 0;
+}
+
+.project-details a {
+    color: #4a90e2;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.project-details a:hover {
+    text-decoration: underline;
+}
+
+/* Skill List Styling */
+.project-details strong {
+    font-weight: 700;
+    color: #2a2a2a;
+}
+
+/* Download Button */
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+    padding: 20px;
+}
+
+#studentForm {
+    background: #003366; /* Changed to dark blue for contrast with white logo */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px;
+}
+h2 {
+    color: #fdfbfb;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+img {
+    width: 100px;
+
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e1e1; /* Light gray border */
+    border-radius: 6px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    background-color: #f9f9f9; /* Light background for inputs */
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3f2b96; /* Darker color on focus */
+}
+
+.error {
+    color: #e74c3c; /* Brighter red for error messages */
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: block;
+    font-weight: bold; /* Make error messages bold */
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3f2b96 0%, #a8c0ff 100%); /* New vibrant gradient */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s ease, background-color 0.3s ease; /* Added transition for background */
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #3f2b96; /* Solid color on hover */
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #studentForm {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}

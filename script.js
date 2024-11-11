@@ -151,13 +151,21 @@ function displayProjects(projects) {
         const projectDiv = document.createElement('div');
         projectDiv.classList.add('project');
         projectDiv.innerHTML = `
-          <h3>${index + 1} ${project.title}</h3>
+          <h3>${index + 1} - ${project.title}</h3>
           <p><strong>GitHub:</strong> <a href="${project.githublink}" target="_blank">${project.githublink}</a></p>
-          <p><strong>Skills:</strong> ${project.skills}</p>
-          <p><strong>Date:</strong> ${project.date}</p> <!-- Make sure to use 'date' here -->
+          <p><strong>Skills:</strong> ${project.skills.join(', ')}</p>
+          <p><strong>Date:</strong> ${project.date}</p>
         `;
         projectlist.appendChild(projectDiv);
     });
+
+    // Show "Finish" button only if there is at least one project
+    const finishButtonContainer = document.getElementById('finishButton');
+    if (projects.length > 0) {
+        finishButtonContainer.style.display = 'block';
+    } else {
+        finishButtonContainer.style.display = 'none';
+    }
 }
 
 
@@ -169,23 +177,34 @@ function displayPortfolio(){
     const student = JSON.parse(localStorage.getItem('student'));
     const portfolio = document.getElementById('portfolio');
     portfolio.innerHTML = `
-        <h2>${student.firstName} ${student.lastName}'s Portfolio</h2>
-        <p><strong>Email:</strong> ${student.email}</p>
-        <p><strong>Phone:</strong> ${student.phone}</p>
-        <p><strong>Group:</strong> ${student.group}</p>
-        <h3>Projects</h3>
+        <div class="portfolio-header">
+            <h2>${student.firstName} ${student.lastName}'s Portfolio</h2>
+        </div>
+        <div class="portfolio-contact">
+            <p><strong>Email:</strong> ${student.email}</p>
+            <p><strong>Phone:</strong> ${student.phone}</p>
+            <p><strong>Group:</strong> ${student.group}</p>
+        </div>
+        <div class="portfolio-projects">
+            <h3>Projects</h3>
+        </div>
     `;
+
+    const projectsContainer = portfolio.querySelector('.portfolio-projects');
 
     student.projects.forEach((project, index) => {
         const projectCard = document.createElement('div');
         projectCard.classList.add('project-card');
         projectCard.innerHTML = `
-            <h4>Project ${index + 1}</h4>
-            <p><strong>Title:</strong> ${project.title}</p>
-            <p><strong>GitHub:</strong> <a href="${project.githublink}" target="_blank">${project.githublink}</a></p>
-            <p><strong>Skills:</strong> ${project.skills}</p>
+            <div class="project-header">
+                <h4>Project ${index + 1}: ${project.title}</h4>
+            </div>
+            <div class="project-details">
+                <p><strong>GitHub:</strong> <a href="${project.githublink}" target="_blank">${project.githublink}</a></p>
+                <p><strong>Skills:</strong> ${project.skills}</p>
+            </div>
         `;
-        portfolio.appendChild(projectCard);
+        projectsContainer.appendChild(projectCard);
     });
 }
 
