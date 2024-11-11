@@ -173,40 +173,74 @@ function sendPortfolio() {
     window.location.href = 'portfolio.html';
 }
 
-function displayPortfolio(){
+function displayPortfolio() {
     const student = JSON.parse(localStorage.getItem('student'));
     const portfolio = document.getElementById('portfolio');
+
+    // Check if student data exists
+    if (!student) {
+        portfolio.innerHTML = '<p>No student data found.</p>';
+        return;
+    }
+
     portfolio.innerHTML = `
         <div class="portfolio-header">
-            <h2>${student.firstName} ${student.lastName}'s Portfolio</h2>
+            <div class="student-info">
+                <h1>${student.firstName} ${student.lastName}</h1>
+                <div class="subtitle">Web Development Student</div>
+            </div>
         </div>
+
         <div class="portfolio-contact">
-            <p><strong>Email:</strong> ${student.email}</p>
-            <p><strong>Phone:</strong> ${student.phone}</p>
-            <p><strong>Group:</strong> ${student.group}</p>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>${student.email}</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>${student.phone}</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-users"></i>
+                <span>${student.group}</span>
+            </div>
         </div>
+
         <div class="portfolio-projects">
-            <h3>Projects</h3>
+            <h2><i class="fas fa-code"></i> My Projects</h2>
+            <div class="projects-grid"></div>
         </div>
     `;
 
-    const projectsContainer = portfolio.querySelector('.portfolio-projects');
+    const projectsGrid = portfolio.querySelector('.projects-grid');
 
-    student.projects.forEach((project, index) => {
-        const projectCard = document.createElement('div');
-        projectCard.classList.add('project-card');
-        projectCard.innerHTML = `
-            <div class="project-header">
-                <h4>Project ${index + 1}: ${project.title}</h4>
-            </div>
-            <div class="project-details">
-                <p><strong>GitHub:</strong> <a href="${project.githublink}" target="_blank">${project.githublink}</a></p>
-                <p><strong>Skills:</strong> ${project.skills}</p>
-            </div>
-        `;
-        projectsContainer.appendChild(projectCard);
-    });
+        student.projects.forEach((project, index) => {
+            const projectCard = document.createElement('div');
+            projectCard.classList.add('project-card');
+            projectCard.innerHTML = `
+                <div class="project-content">
+                    <div class="project-header">
+                        <span class="project-number">${String(index + 1).padStart(2, '0')}</span>
+                        <h3>${project.title}</h3>
+                    </div>
+                    <div class="project-details">
+                        <div class="github-link">
+                            <i class="fab fa-github"></i>
+                            <a href="${project.githublink}" target="_blank">View on GitHub</a>
+                        </div>
+                        <div class="skills-container">
+                            ${project.skills.map(skill => 
+                                `<span class="skill-tag">${skill}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            projectsGrid.appendChild(projectCard);
+        });
+
 }
+
 
 window.onload = function () {
     if (window.location.pathname.includes('projects.html')) {

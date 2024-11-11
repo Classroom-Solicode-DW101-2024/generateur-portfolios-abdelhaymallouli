@@ -1,137 +1,159 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --text-color: #1f2937;
+    --light-bg: #f3f4f6;
+    --white: #003366;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 40px 20px;
-}
-img {
-    display: block;
-    width: 200px;
-    margin: 0 auto;
-    margin-top: -2%;
-    margin-bottom: 20px;
-
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-/* Main Portfolio Container */
-#portfolio {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px;
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+header {
+    background-color: var(--white);
+    padding: 1rem;
+    box-shadow: var(--shadow);
 }
 
-/* Portfolio Header */
+.logo {
+    max-height: 50px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
 .portfolio-header {
     text-align: center;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #e6e6e6;
+    margin-bottom: 2rem;
 }
 
-.portfolio-header h2 {
-    font-size: 32px;
-    color: #2a2a2a;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+.student-info h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
 }
 
 .portfolio-contact {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin-top: 15px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 15px;
-    color: #5a5a5a;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-/* Projects Section */
-.portfolio-projects {
-    margin-top: 30px;
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.portfolio-projects h3 {
-    font-size: 28px;
-    color: #4a90e2;
-    font-weight: 600;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #4a90e2;
-    padding-bottom: 10px;
+.contact-item i {
+    color: var(--primary-color);
 }
 
-/* Project Card Styling */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
 .project-card {
-    background-color: #f8f9fb;
-    border: 1px solid #d3d8e2;
+    background-color: var(--white);
     border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
 }
 
-.project-header h4 {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 5px;
+.project-content {
+    padding: 1.5rem;
 }
 
-/* Project Details */
-.project-details p {
-    font-size: 15px;
-    color: #5a5a5a;
-    margin: 5px 0;
-}
-
-.project-details a {
-    color: #4a90e2;
+.project-number {
+    color: var(--primary-color);
+    font-size: 0.9rem;
     font-weight: bold;
+}
+
+.project-header h3 {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+.github-link {
+    margin: 1rem 0;
+}
+
+.github-link a {
+    color: var(--primary-color);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.project-details a:hover {
-    text-decoration: underline;
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
-/* Skill List Styling */
-.project-details strong {
-    font-weight: 700;
-    color: #2a2a2a;
+.skill-tag {
+    background-color: var(--light-bg);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
 }
 
-/* Download Button */
-button {
-    display: block;
-    margin: 0 auto;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem auto;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+.download-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .portfolio-contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .student-info h1 {
+        font-size: 2rem;
+    }
 }
