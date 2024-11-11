@@ -22,6 +22,12 @@ body {
     padding: 40px 20px;
 }
 
+.error {
+    font-size: smaller;
+    color: red;
+}
+
+
 /* Title for Project Form */
 h2#projectTitle {
     text-align: center;
