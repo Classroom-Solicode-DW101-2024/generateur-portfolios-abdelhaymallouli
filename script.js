@@ -214,33 +214,35 @@ function displayPortfolio() {
 
     const projectsGrid = portfolio.querySelector('.projects-grid');
 
-        student.projects.forEach((project, index) => {
-            const projectCard = document.createElement('div');
-            projectCard.classList.add('project-card');
-            projectCard.innerHTML = `
-                <div class="project-content">
-                    <div class="project-header">
-                        <span class="project-number">${String(index + 1).padStart(2, '0')}</span>
-                        <h3>${project.title}</h3>
+    student.projects.forEach((project, index) => {
+        const projectCard = document.createElement('div');
+        projectCard.classList.add('project-card');   
+        projectCard.innerHTML = `
+            <div class="project-content">
+                <div class="project-header">
+                    <span class="project-number">${String(index + 1).padStart(2, '0')}</span>
+                    <h3>${project.title}</h3>
+                </div>
+
+                <div class="project-details">
+                    <div class="github-link">
+                        <i class="fab fa-github"></i>
+                        <a href="${project.githublink}" target="_blank">View on GitHub</a>
                     </div>
-                    <div class="project-details">
-                        <div class="github-link">
-                            <i class="fab fa-github"></i>
-                            <a href="${project.githublink}" target="_blank">View on GitHub</a>
-                        </div>
-                        <div class="skills-container">
-                            ${project.skills.map(skill => 
-                                `<span class="skill-tag">${skill}</span>`
-                            ).join('')}
-                        </div>
+                    <div class="project-date">
+                        <p>Date: ${project.date}</p>
+                    </div>
+                    <div class="skills-container">
+                        ${project.skills.map(skill => 
+                            `<span class="skill-tag">${skill}</span>`
+                        ).join('')}
                     </div>
                 </div>
-            `;
-            projectsGrid.appendChild(projectCard);
-        });
-
+            </div>
+        `;
+        projectsGrid.appendChild(projectCard);
+    });
 }
-
 
 window.onload = function () {
     if (window.location.pathname.includes('projects.html')) {

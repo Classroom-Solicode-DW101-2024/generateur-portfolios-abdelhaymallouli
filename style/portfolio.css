@@ -77,9 +77,10 @@ header {
 }
 
 .project-card {
-    background-color: var(--white);
+    background-color: white;
     border-radius: 8px;
     overflow: hidden;
+    width: 400px;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease;
 }
@@ -98,6 +99,11 @@ header {
     font-weight: bold;
 }
 
+.project-date {
+    margin: 15px 0;
+    color: var(--text-color);
+}
+
 .project-header h3 {
     margin: 0.5rem 0;
     color: var(--text-color);
@@ -105,6 +111,10 @@ header {
 
 .github-link {
     margin: 1rem 0;
+}
+
+.fab fa-github {
+    margin-bottom: 10px;
 }
 
 .github-link a {
