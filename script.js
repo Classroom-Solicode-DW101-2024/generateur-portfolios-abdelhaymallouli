@@ -44,12 +44,12 @@ function validStudentForm() {
     if (!email.value) {
         document.getElementById('emailError').textContent = 'Email is required.';
         valid = false;
-    } else if (!email.value.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-        document.getElementById('emailError').textContent = 'Email format is invalid.';
+    } else if (!email.value.match(/^[a-zA-Z]+\.[a-zA-Z]+\.\d+@gmail\.com$/)) {
+        document.getElementById('emailError').textContent = 'Email format is invalid (expected format: nom.prenom.solicode@gmail.com).';
         valid = false;
     }
-    if (!phone.value || !phone.value.match(/^\+?212\s?(6|7)\d{1}\s?\d{2}\s?\d{2}\s?\d{2}$/)) {
-        document.getElementById('phoneError').textContent = 'Phone format is invalid (expected format: +212 6X XX XX XX or +212 7X XX XX XX)';
+    if (!phone.value || !phone.value.match(/^\+212\d{3}-\d{2}-\d{2}-\d{2}$/)) {
+        document.getElementById('phoneError').textContent = 'Phone format is invalid (expected format: +212XXX-XX-XX-XX).';
         valid = false;
     }
     if (!group.value) {
@@ -110,8 +110,17 @@ function validprojectForm(){
     }
 
     if (!date.value) {
-        document.getElementById('dateError').textContent = 'Date  is required.';
+        document.getElementById('dateError').textContent = 'Date is required.';
         valid = false;
+    } else {
+        const selectedDate = new Date(date.value);
+        const currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0);
+        
+        if (selectedDate >= currentDate) {
+            document.getElementById('dateError').textContent = 'Date must be in the past.';
+            valid = false;
+        }
     }
     return valid;
 }
@@ -140,6 +149,7 @@ function addProject() {
     studentData.projects.push(project);
 
     localStorage.setItem('student', JSON.stringify(studentData));
+    document.getElementById('projectFOrm').reset();
     displayProjects(studentData.projects);
 }
 
@@ -249,5 +259,17 @@ window.onload = function () {
 
 function downloadPDF() {
     const element = document.getElementById('portfolio');
-    html2pdf(element);
+    const opt = {
+        margin:       1,
+        filename:     'portfolio.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { 
+            unit: 'pt', 
+            format: [1000, 900], 
+            orientation: 'portrait' 
+        } 
+    };
+    
+    html2pdf().from(element).set(opt).save();
 }
