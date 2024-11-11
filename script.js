@@ -176,13 +176,6 @@ function sendPortfolio() {
 function displayPortfolio() {
     const student = JSON.parse(localStorage.getItem('student'));
     const portfolio = document.getElementById('portfolio');
-
-    // Check if student data exists
-    if (!student) {
-        portfolio.innerHTML = '<p>No student data found.</p>';
-        return;
-    }
-
     portfolio.innerHTML = `
         <div class="portfolio-header">
             <div class="student-info">
