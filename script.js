@@ -44,7 +44,7 @@ function validStudentForm() {
     if (!email.value) {
         document.getElementById('emailError').textContent = 'Email is required.';
         valid = false;
-    } else if (!email.value.match(/^[a-zA-Z]+\.[a-zA-Z]+\.\d+@gmail\.com$/)) {
+    } else if (!email.value.match(/^[a-zA-Z]+\.[a-zA-Z]+\.solicode@gmail\.com$/)) {
         document.getElementById('emailError').textContent = 'Email format is invalid (expected format: nom.prenom.solicode@gmail.com).';
         valid = false;
     }
